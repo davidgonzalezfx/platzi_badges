@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './styles/BadgeDetails.css';
 import Logo from '../images/platziconf-logo.svg';
 import Badge from '../components/Badge';
+import DeleteBadgeModal from '../components/DeleteBadgeModal';
 
 export default class BadgeDetails extends Component {
   render() {
@@ -47,7 +48,17 @@ export default class BadgeDetails extends Component {
                   </Link>
                 </div>
                 <div>
-                  <button className='btn btn-danger'>Delete</button>
+                  <button
+                    onClick={this.props.onOpenModal}
+                    className='btn btn-danger'
+                  >
+                    Delete
+                  </button>
+                  <DeleteBadgeModal
+                    isOpen={this.props.modalIsOpen}
+                    onClose={this.props.onCloseModal}
+                    onDeleteBadge={this.props.onDeleteBadge}
+                  />
                 </div>
               </div>
             </div>
