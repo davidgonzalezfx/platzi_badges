@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./styles/Badges.css";
 import Logo from "../images/badge-header.svg";
 import BadgesList from "../components/BadgesList.js";
+import PageLoading from "../components/PageLoading.js";
 import api from "../api.js";
 
 export default class Badges extends Component {
@@ -30,7 +31,7 @@ export default class Badges extends Component {
 
   render() {
     if (this.state.loading === true) {
-      return "Loading ...";
+      return <PageLoading />;
     }
 
     if (this.state.error) {
